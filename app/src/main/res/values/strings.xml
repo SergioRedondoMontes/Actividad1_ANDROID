@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Actividad1</string>
-    <string name="btnSiguiente">SIGUIENTE</string>
+    <string name="btnBook">SIGUIENTE</string>
     <string name="btnEditar">EDITAR</string>
+    <string name="btnGuardar">GUARDAR</string>
+    <string name="btnPerfil">PERFIL</string>
+    <string name="btnSiguiente">SIGUIENTE</string>
+    <string name="btnAnterior">ANTERIOR</string>
     <string name="txtNombre">NOMBRE</string>
     <string name="txtEmail">EMAIL</string>
     <string name="txtTelefono">TELEFONO</string>
     <string name="txtDireccion">DIRECCION</string>
     <string name="txtFInscripcion">FECHA INSCRIPCION</string>
+    <string name="txtTitulo">TITUTLO</string>
 </resources>
