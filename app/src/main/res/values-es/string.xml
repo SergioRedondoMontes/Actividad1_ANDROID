@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Actividad1</string>
     <string name="btnSiguiente">SIGUIENTE</string>
     <string name="btnEditar">EDITAR</string>
+    <string name="btnGuardar">GUARDAR</string>
     <string name="txtNombre">NOMBRE</string>
     <string name="txtEmail">EMAIL</string>
     <string name="txtTelefono">TELEFONO</string>
