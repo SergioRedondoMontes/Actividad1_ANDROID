@@ -9,15 +9,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     public LinearLayout viualFormulario;
 
-    public Button btnSiguiente;
+    public Button btnBook;
     public Button btnEditar;
     public Button btnGuardar;
 
     private  MainActivityEvents events;
+    private DataHolder dataHolder;
 
     public TextView txtNombre;
     public TextView txtEmail;
@@ -32,13 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     public DatePicker datePicker;
 
-    public String nombre;
-    public String email;
-    public String telefono;
-    public String direccion;
-    public int yy;
-    public int mm;
-    public int dd;
 
 
     @Override
@@ -51,12 +47,13 @@ public class MainActivity extends AppCompatActivity {
         initButton();
         initEditText();
         initTextView();
+        onDateChanged(datePicker,dataHolder.yy,dataHolder.mm,dataHolder.dd);
     }
 
     public void initButton(){
-        btnSiguiente = this.findViewById(R.id.btnSiguiente);
-        btnSiguiente.setOnClickListener(events);
-        btnSiguiente.setText("btnBook");
+        btnBook = this.findViewById(R.id.btnBook);
+        btnBook.setOnClickListener(events);
+        btnBook.setText("btnBook");
         btnEditar = this.findViewById(R.id.btnEditar);
         btnEditar.setOnClickListener(events);
         btnEditar.setText("btnEditar");
@@ -65,9 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void initEditText(){
         etNombre = this.findViewById(R.id.etNombre);
+        etNombre.setText(dataHolder.nombre);
         etEmail = this.findViewById(R.id.etEmail);
+        etEmail.setText(dataHolder.email);
         etTelefono = this.findViewById(R.id.etTelefono);
+        etTelefono.setText(dataHolder.telefono);
         etDireccion = this.findViewById(R.id.etDireccion);
+        etDireccion.setText(dataHolder.direccion);
     }
 
     public void initTextView(){
@@ -76,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         txtTelefono.setText("txtTelefono");
         txtDireccion.setText("txtDireccion");
         txtFInscripcion.setText("txtFInscripcion");
+    }
+
+    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        Calendar selectedCalendar = Calendar.getInstance();
+        selectedCalendar.set(Calendar.YEAR, year);
+        selectedCalendar.set(Calendar.MONTH, monthOfYear);
+        selectedCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
     }
 
     public EditText getEtNombre(){return etNombre; }

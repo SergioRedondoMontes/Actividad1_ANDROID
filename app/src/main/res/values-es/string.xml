@@ -13,4 +13,14 @@
     <string name="txtDireccion">DIRECCION</string>
     <string name="txtFInscripcion">FECHA INSCRIPCION</string>
     <string name="txtTitulo">TITUTLO</string>
+    <string-array name="titulos">
+        <item>titulo1</item>
+        <item>titulo2</item>
+    </string-array>
+
+    <string-array name="cuerpos">
+        <item>cuerpo1</item>
+        <item>cuerpo2</item>
+    </string-array>
+
 </resources>

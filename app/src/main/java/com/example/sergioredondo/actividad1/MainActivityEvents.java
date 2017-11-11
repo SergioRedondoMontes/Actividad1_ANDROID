@@ -2,6 +2,7 @@ package com.example.sergioredondo.actividad1;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 public class MainActivityEvents implements View.OnClickListener {
 
     private MainActivity mainActivity;
+    private DataHolder dataHolder;
 
 
     public MainActivityEvents(MainActivity mainActivity){
@@ -27,13 +29,13 @@ public class MainActivityEvents implements View.OnClickListener {
         if (view.getId() == R.id.btnEditar){
             actionBtnEditar();
 
-        }else if (view.getId() == R.id.btnSiguiente){
+        }else if (view.getId() == R.id.btnBook){
             mainActivity.viualFormulario.setVisibility(View.GONE);
-            /*
-            Intent intent = new Intent(mainActivity,Bookctivity.class);
+
+            Intent intent = new Intent(mainActivity,BookActivity.class);
             mainActivity.startActivity(intent);
             mainActivity.finish();
-            */
+
         }else if(view.getId() == R.id.btnGuardar){
             getEditText();
             getDate(mainActivity.datePicker);
@@ -54,24 +56,18 @@ public class MainActivityEvents implements View.OnClickListener {
     }
 
     public void getEditText(){
-        mainActivity.nombre = mainActivity.getEtNombre().toString();
-        mainActivity.email = mainActivity.getEtEmail().toString();
-        mainActivity.telefono = mainActivity.getEtTelefono().toString();
-        mainActivity.direccion = mainActivity.getEtDireccion().toString();
+        dataHolder.nombre = mainActivity.getEtNombre().toString();
+        dataHolder.email = mainActivity.getEtEmail().toString();
+        dataHolder.telefono = mainActivity.getEtTelefono().toString();
+        dataHolder.direccion = mainActivity.getEtDireccion().toString();
     }
 
-    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        Calendar selectedCalendar = Calendar.getInstance();
-        selectedCalendar.set(Calendar.YEAR, year);
-        selectedCalendar.set(Calendar.MONTH, monthOfYear);
-        selectedCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-    }
 
     public void getDate(DatePicker datepicker) {
         final Calendar calendar = Calendar.getInstance();
-        mainActivity.yy = calendar.get(Calendar.YEAR);
-        mainActivity.mm = calendar.get(Calendar.MONTH);
-        mainActivity.dd = calendar.get(Calendar.DAY_OF_MONTH);
+        dataHolder.yy = calendar.get(Calendar.YEAR);
+        dataHolder.mm = calendar.get(Calendar.MONTH);
+        dataHolder.dd = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
 }

@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.LinkedHashMap;
+
 public class BookActivity extends AppCompatActivity {
 
 
@@ -26,13 +28,31 @@ public class BookActivity extends AppCompatActivity {
     public EditText etTitulo;
     public EditText etCuerpo;
 
+    //public LinkedHashMap<String,String> mapBooks;
+    public String[] titulos;
+    public String[] cuerpos;
+    public int auxArrLength;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
+        initMapBooks();
         initButton();
         initEditText();
         initTextView();
+    }
+
+    private void initMapBooks() {
+        titulos = this.getResources().getStringArray(R.array.titulos);
+        cuerpos = this.getResources().getStringArray(R.array.cuerpos);
+        /*
+        mapBooks = new LinkedHashMap<String,String>();
+        for (int i = 0; i < Math.min(titulos.length, cuerpos.length); ++i) {
+            mapBooks.put(titulos[i], cuerpos[i]);
+        }
+        */
     }
 
 
@@ -51,15 +71,20 @@ public class BookActivity extends AppCompatActivity {
 
     }
 
-    public void initEditText(){
-        etTitulo = this.findViewById(R.id.etTitulo);
-        etCuerpo = this.findViewById(R.id.etCuerpo);
-
-    }
-
     public void initTextView(){
         txtTitulo.setText("txtTitulo");
         txtCuerpo.setText("txtCuerpo");
 
     }
+
+    public void initEditText(){
+        auxArrLength = cuerpos.length;
+        etTitulo = this.findViewById(R.id.etTitulo);
+        etTitulo.setText(titulos[0]);
+        etCuerpo = this.findViewById(R.id.etCuerpo);
+        etCuerpo.setText(cuerpos[0]);
+
+    }
+
+
 }

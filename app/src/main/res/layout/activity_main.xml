@@ -33,7 +33,7 @@
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <Button
-                android:id="@+id/btnSiguiente"
+                android:id="@+id/btnBook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
