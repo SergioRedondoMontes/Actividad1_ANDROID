@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by sergioredondo on 10/11/17.
@@ -37,10 +38,9 @@ public class MainActivityEvents implements View.OnClickListener {
             mainActivity.finish();
 
         }else if(view.getId() == R.id.btnGuardar){
-            Log.d("aa","holaaaaaa");
             getEditText();
-            getDate(mainActivity.datePicker);
-
+            getDate();
+            actionBtnGuardar();
         }
 
     }
@@ -57,6 +57,7 @@ public class MainActivityEvents implements View.OnClickListener {
         mainActivity.btnGuardar.setText(R.string.btnGuardar);
         mainActivity.btnGuardar.setOnClickListener(this);
         mainActivity.btnGuardar.setVisibility(View.VISIBLE);
+        DataHolder.instance.aux=false;
     }
 
     public void getEditText(){
@@ -68,12 +69,24 @@ public class MainActivityEvents implements View.OnClickListener {
         DataHolder.instance.direccion = mainActivity.etDireccion.getText().toString();
     }
 
+    public void actionBtnGuardar(){
+        mainActivity.etNombre.setEnabled(false);
+        mainActivity.etEmail.setEnabled(false);
+        mainActivity.etTelefono.setEnabled(false);
+        mainActivity.etDireccion.setEnabled(false);
+        mainActivity.btnGuardar.setVisibility(View.GONE);
 
-    public void getDate(DatePicker datepicker) {
-        final Calendar calendar = Calendar.getInstance();
-        DataHolder.instance.yy = calendar.get(Calendar.YEAR);
-        DataHolder.instance.mm = calendar.get(Calendar.MONTH);
-        DataHolder.instance.dd = calendar.get(Calendar.DAY_OF_MONTH);
+        mainActivity.btnEditar.setText(R.string.btnEditar);
+        mainActivity.btnEditar.setOnClickListener(this);
+        mainActivity.btnEditar.setVisibility(View.VISIBLE);
+
+    }
+
+
+    public void getDate() {
+        DataHolder.instance.yy = mainActivity.datePicker.getYear();
+        DataHolder.instance.mm = mainActivity.datePicker.getMonth();
+        DataHolder.instance.dd = mainActivity.datePicker.getDayOfMonth();
     }
 
 }

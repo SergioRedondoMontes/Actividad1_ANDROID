@@ -17,11 +17,19 @@
     <string-array name="titulos">
         <item>titulo1</item>
         <item>titulo2</item>
+        <item>titulo3</item>
+        <item>titulo4</item>
+        <item>titulo5</item>
+
+
     </string-array>
 
     <string-array name="cuerpos">
         <item>cuerpo1</item>
         <item>cuerpo2</item>
+        <item>cuerpo3</item>
+        <item>cuerpo4</item>
+        <item>cuerpo5</item>
     </string-array>
 
 </resources>

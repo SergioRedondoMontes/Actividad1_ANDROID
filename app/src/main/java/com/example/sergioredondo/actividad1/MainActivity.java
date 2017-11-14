@@ -2,6 +2,7 @@ package com.example.sergioredondo.actividad1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -43,14 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         events = new MainActivityEvents(this);
-        DataHolder.instance.aux = false;
+        datePicker = this.findViewById(R.id.datePicker);
         initButton();
         initEditText();
         initTextView();
-
-        if(DataHolder.instance.aux) {
-            datePicker.findViewById(R.id.datePicker);
-            onDateChanged(datePicker, DataHolder.instance.yy, DataHolder.instance.mm, DataHolder.instance.dd);
+        if(!DataHolder.instance.aux) {
+            onDateChanged(datePicker);
         }
     }
 
@@ -89,16 +88,9 @@ public class MainActivity extends AppCompatActivity {
         txtFInscripcion.setText(R.string.txtFInscripcion);
     }
 
-    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        Calendar selectedCalendar = Calendar.getInstance();
-        selectedCalendar.set(Calendar.YEAR, year);
-        selectedCalendar.set(Calendar.MONTH, monthOfYear);
-        selectedCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+    public void onDateChanged(DatePicker view) {
+        view.updateDate(DataHolder.instance.yy,DataHolder.instance.mm,DataHolder.instance.dd);
     }
 
-    public EditText getEtNombre(){return etNombre; }
-    public EditText getEtEmail(){return etEmail; }
-    public EditText getEtTelefono(){return etTelefono; }
-    public EditText getEtDireccion(){return etDireccion; }
 
 }

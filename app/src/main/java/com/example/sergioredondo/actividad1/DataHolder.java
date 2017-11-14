@@ -8,14 +8,14 @@ public class DataHolder {
 
     static public DataHolder instance = new DataHolder();
 
-    public String nombre;
-    public String email;
-    public String telefono;
-    public String direccion;
-    public int yy;
-    public int mm;
-    public int dd;
+    static public String nombre;
+    static public String email;
+    static public String telefono;
+    static public String direccion;
+    static public int yy = 0;
+    static public int mm = 0;
+    static public int dd = 0;
 
-    public boolean aux;
+    static  public boolean aux = true;
 
 }
