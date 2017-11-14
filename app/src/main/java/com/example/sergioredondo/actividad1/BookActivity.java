@@ -3,6 +3,7 @@ package com.example.sergioredondo.actividad1;
 import android.net.wifi.aware.PublishConfig;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ public class BookActivity extends AppCompatActivity {
     public Button btnSiguiente;
     public Button btnAnterior;
 
-    private  BookActivityEvents events;
+    private BookActivityEvents events;
 
     public TextView txtTitulo;
     public TextView txtCuerpo;
@@ -28,7 +29,6 @@ public class BookActivity extends AppCompatActivity {
     public EditText etTitulo;
     public EditText etCuerpo;
 
-    //public LinkedHashMap<String,String> mapBooks;
     public String[] titulos;
     public String[] cuerpos;
     public int auxArrLength;
@@ -38,53 +38,57 @@ public class BookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-        initMapBooks();
+
+        events = new BookActivityEvents(this);
+
         initButton();
-        initEditText();
         initTextView();
+        initMapBooks();
+        initEditText();
+
     }
 
-    private void initMapBooks() {
-        titulos = this.getResources().getStringArray(R.array.titulos);
-        cuerpos = this.getResources().getStringArray(R.array.cuerpos);
-        /*
-        mapBooks = new LinkedHashMap<String,String>();
-        for (int i = 0; i < Math.min(titulos.length, cuerpos.length); ++i) {
-            mapBooks.put(titulos[i], cuerpos[i]);
-        }
-        */
-    }
+
 
 
     public void initButton(){
         btnPerfil = this.findViewById(R.id.btnPerfil);
         btnPerfil.setOnClickListener(events);
-        btnPerfil.setText("btnPerfil");
+        btnPerfil.setText(R.string.btnPerfil);
 
         btnAnterior = this.findViewById(R.id.btnAnterior);
         btnAnterior.setOnClickListener(events);
-        btnAnterior.setText("btnAnterior");
+        btnAnterior.setText(R.string.btnAnterior);
 
         btnSiguiente = this.findViewById(R.id.btnSiguiente);
         btnSiguiente.setOnClickListener(events);
-        btnSiguiente.setText("btnBook");
+        btnSiguiente.setText(R.string.btnSiguiente);
 
     }
 
     public void initTextView(){
-        txtTitulo.setText("txtTitulo");
-        txtCuerpo.setText("txtCuerpo");
+        txtTitulo = this.findViewById(R.id.txtTitulo);
+        txtTitulo.setText(R.string.txtTitulo);
+        txtCuerpo= this.findViewById(R.id.txtCuerpo);
+        txtCuerpo.setText(R.string.txtCuerpo);
 
     }
 
-    public void initEditText(){
+    private void initMapBooks() {
+        titulos = this.getResources().getStringArray(R.array.titulos);
+        cuerpos = this.getResources().getStringArray(R.array.cuerpos);
         auxArrLength = cuerpos.length;
+    }
+
+    public void initEditText(){
         etTitulo = this.findViewById(R.id.etTitulo);
         etTitulo.setText(titulos[0]);
         etCuerpo = this.findViewById(R.id.etCuerpo);
         etCuerpo.setText(cuerpos[0]);
 
     }
+
+
 
 
 }

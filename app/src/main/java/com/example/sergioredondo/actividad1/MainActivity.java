@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public Button btnGuardar;
 
     private  MainActivityEvents events;
-    private DataHolder dataHolder;
+
 
     public TextView txtNombre;
     public TextView txtEmail;
@@ -43,40 +43,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         events = new MainActivityEvents(this);
-
+        DataHolder.instance.aux = false;
         initButton();
         initEditText();
         initTextView();
-        onDateChanged(datePicker,dataHolder.yy,dataHolder.mm,dataHolder.dd);
+
+        if(DataHolder.instance.aux) {
+            datePicker.findViewById(R.id.datePicker);
+            onDateChanged(datePicker, DataHolder.instance.yy, DataHolder.instance.mm, DataHolder.instance.dd);
+        }
     }
 
     public void initButton(){
         btnBook = this.findViewById(R.id.btnBook);
         btnBook.setOnClickListener(events);
-        btnBook.setText("btnBook");
+        btnBook.setText(R.string.btnBook);
         btnEditar = this.findViewById(R.id.btnEditar);
         btnEditar.setOnClickListener(events);
-        btnEditar.setText("btnEditar");
+        btnEditar.setText(R.string.btnEditar);
+        btnGuardar = this.findViewById(R.id.btnGuardar);
         btnGuardar.setVisibility(View.GONE);
     }
 
     public void initEditText(){
         etNombre = this.findViewById(R.id.etNombre);
-        etNombre.setText(dataHolder.nombre);
+        etNombre.setText(DataHolder.instance.nombre);
         etEmail = this.findViewById(R.id.etEmail);
-        etEmail.setText(dataHolder.email);
+        etEmail.setText(DataHolder.instance.email);
         etTelefono = this.findViewById(R.id.etTelefono);
-        etTelefono.setText(dataHolder.telefono);
+        etTelefono.setText(DataHolder.instance.telefono);
         etDireccion = this.findViewById(R.id.etDireccion);
-        etDireccion.setText(dataHolder.direccion);
+        etDireccion.setText(DataHolder.instance.direccion);
     }
 
     public void initTextView(){
-        txtNombre.setText("txtNombre");
-        txtEmail.setText("txtEmail");
-        txtTelefono.setText("txtTelefono");
-        txtDireccion.setText("txtDireccion");
-        txtFInscripcion.setText("txtFInscripcion");
+        txtNombre = this.findViewById(R.id.txtNombre);
+        txtNombre.setText(R.string.txtNombre);
+        txtEmail = this.findViewById(R.id.txtEmail);
+        txtEmail.setText(R.string.txtEmail);
+        txtTelefono = this.findViewById(R.id.txtTelefono);
+        txtTelefono.setText(R.string.txtTelefono);
+        txtDireccion = this.findViewById(R.id.txtDireccion);
+        txtDireccion.setText(R.string.txtDireccion);
+        txtFInscripcion = this.findViewById(R.id.txtFInscripcion);
+        txtFInscripcion.setText(R.string.txtFInscripcion);
     }
 
     public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

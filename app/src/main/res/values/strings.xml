@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Actividad1</string>
     <string name="btnBook">SIGUIENTE</string>
@@ -12,4 +13,15 @@
     <string name="txtDireccion">DIRECCION</string>
     <string name="txtFInscripcion">FECHA INSCRIPCION</string>
     <string name="txtTitulo">TITUTLO</string>
+    <string name="txtCuerpo">CUERPO</string>
+    <string-array name="titulos">
+        <item>titulo1</item>
+        <item>titulo2</item>
+    </string-array>
+
+    <string-array name="cuerpos">
+        <item>cuerpo1</item>
+        <item>cuerpo2</item>
+    </string-array>
+
 </resources>

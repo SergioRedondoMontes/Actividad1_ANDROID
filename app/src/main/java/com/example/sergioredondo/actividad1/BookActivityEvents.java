@@ -1,6 +1,7 @@
 package com.example.sergioredondo.actividad1;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -19,15 +20,20 @@ public class BookActivityEvents implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
         if (view.getId() == R.id.btnPerfil){
+            Log.d("btnPerfil","btnPerfil");
             Intent intent = new Intent(bookActivity,MainActivity.class);
             bookActivity.startActivity(intent);
             bookActivity.finish();
+            //DataHolder.instance.aux=true;
         }else if (view.getId() == R.id.btnAnterior){
+            Log.d("anterior","anterior");
             contador=contador-1;
             pasarpagina();
         }else if (view.getId() == R.id.btnSiguiente);
-            contador++;
+        Log.d("siguiente","siguiente");
+            contador=contador+1;
             pasarpagina();
         }
 

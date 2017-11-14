@@ -13,6 +13,7 @@
     <string name="txtDireccion">DIRECCION</string>
     <string name="txtFInscripcion">FECHA INSCRIPCION</string>
     <string name="txtTitulo">TITUTLO</string>
+    <string name="txtCuerpo">CUERPO</string>
     <string-array name="titulos">
         <item>titulo1</item>
         <item>titulo2</item>
